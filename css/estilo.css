@@ -1,5 +1,74 @@
-#administrar {
-  background: yellow;
+.acp {
+  margin-bottom: 2em;
+}
+
+#telaFundo {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ocultarTela {
+  display: none !important;
+}
+
+.telaConsulta {
+  position: relative;
+  width: 75%;
+  height: 70%;
+  background-color: #54595F;
+  text-align: right;
+}
+.telaConsulta h2 {
+  text-align: center;
+  margin-top: 0.5em;
+}
+.telaConsulta div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 70%;
+  background: white;
+  margin: 0 auto;
+}
+
+.menuLateral {
+  display: flex;
+  flex-direction: column;
+}
+.menuLateral li:nth-child(1) {
+  order: 1;
+}
+.menuLateral li:nth-child(2) {
+  order: 2;
+}
+.menuLateral li:nth-child(3) {
+  order: 3;
+}
+.menuLateral li:nth-child(4) {
+  order: 4;
+}
+.menuLateral li:nth-child(5) {
+  order: 5;
+}
+.menuLateral li:nth-child(6) {
+  order: 6;
+}
+.menuLateral li:nth-child(7) {
+  order: 8;
+}
+.menuLateral li:nth-child(8) {
+  order: 7;
+}
+
+a:not([href]):not([tabindex]) {
+  color: #777 !important;
 }
 
 /*# sourceMappingURL=estilo.css.map */
