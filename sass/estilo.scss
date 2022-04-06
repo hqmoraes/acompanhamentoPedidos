@@ -18,12 +18,40 @@
     display: none !important;   
 }
 
+.exibirTela{
+    cursor: pointer;
+  }
+
 .telaConsulta{
     position: relative;
     width: 75%;
     height: 70%;
-    background-color: #54595F;
+    background-color: transparent;
     text-align: right;
+    #divForm{
+        background-color: transparent;
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .tipoConsulta {
+                input[type="radio"]{
+                    margin-bottom: 0.5em;
+                }
+                justify-content: start;
+                align-items: center;
+                label:nth-of-type(1){
+                padding-right: 2em;
+            }
+        }
+            .tipoConsulta, .itemsConsulta{
+                background-color: transparent;
+            }
+            select{
+                width: 100%;
+            }
+        }
+    }
     h2{
         text-align: center;
         margin-top: 0.5em;
@@ -57,6 +85,9 @@
         @else if $i == 8{
             li:nth-child(#{$i}) {
                 order: 7;
+                a{
+                    border-bottom: 1px solid #292929;
+                }
         }        
       }
     }

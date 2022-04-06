@@ -1,15 +1,23 @@
+function tipoConsulta(clt){
+    let tipo = document.createElement('input');
+    tipo.setAttribute('type','radio');
+    tipo.setAttribute('name','tipoConsulta');
+    tipo.setAttribute('id',clt);
+    tipo.setAttribute('value',clt);
+    let lTipo = document.createElement('label');
+    lTipo.setAttribute('for',clt);
+    lTipo.innerText = clt;
+    document.querySelector('#divForm form .tipoConsulta').appendChild(tipo);
+    document.querySelector('#divForm form .tipoConsulta').appendChild(lTipo);
+}
 try {
         let telaFundo = document.createElement('div');
         telaFundo.id = 'telaFundo';
         telaFundo.setAttribute('class','ocultarTela')
         document.body.appendChild(telaFundo);
-        let botaoFechar = document.createElement('button');
-        botaoFechar.setAttribute('onclick','ocultarTela()');
-        botaoFechar.innerText = 'X';
         let telaConsulta = document.createElement('div');
         telaConsulta.setAttribute('class','telaConsulta');
         document.querySelector('#telaFundo').appendChild(telaConsulta);
-        telaConsulta.prepend(botaoFechar);
         let tituloTela = document.createElement('h2');
         tituloTela.innerText = 'Acompanhamento de Pedidos';
         document.querySelector('.telaConsulta').appendChild(tituloTela);
@@ -18,8 +26,25 @@ try {
         document.querySelector('.telaConsulta').appendChild(divForm);
         let telaForm = document.createElement('form');
         document.querySelector('#divForm').appendChild(telaForm);
+        let divTipo = document.createElement('div');
+        divTipo.classList.add('tipoConsulta');
+        document.querySelector('#divForm form').appendChild(divTipo);
+
+        tipoConsulta('Pedido');
+        tipoConsulta('Leilão');
+
+        let divItems = document.createElement('div');
+        divItems.classList.add('itemsConsulta');
+        document.querySelector('#divForm form').appendChild(divItems);
+        let listaPedidos = document.createElement('select');
+        listaPedidos.setAttribute('size','5');
+        document.querySelector('#divForm form .itemsConsulta').appendChild(listaPedidos);
+        let listaSituacao = document.createElement('select');
+        listaSituacao.setAttribute('size','5');
+        document.querySelector('#divForm form .itemsConsulta').appendChild(listaSituacao);
+        
 } catch (error) {
-    
+    console.log(error);
 }
 
 
@@ -37,20 +62,6 @@ try {
 }
 }
 
-
-
-/*
-
-function exibirPedidos(){
-    let telaConsulta = document.createElement('div');
-    telaConsulta.setAttribute('class','telaConsulta exibeTela');
-    document.querySelector('.acp').appendChild(telaConsulta);
-    let tituloTela = document.createElement('h2');
-    tituloTela.innerText = 'Acompanhamento de Pedidos';
-    document.querySelector('.telaConsulta').appendChild(tituloTela);
-}
-
-*/
 
 function ocultarTela(){
     document.querySelector('#telaFundo').classList.remove('exibirTela');

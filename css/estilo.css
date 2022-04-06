@@ -17,12 +17,40 @@
   display: none !important;
 }
 
+.exibirTela {
+  cursor: pointer;
+}
+
 .telaConsulta {
   position: relative;
   width: 75%;
   height: 70%;
-  background-color: #54595F;
+  background-color: transparent;
   text-align: right;
+}
+.telaConsulta #divForm {
+  background-color: transparent;
+}
+.telaConsulta #divForm form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.telaConsulta #divForm form .tipoConsulta {
+  justify-content: start;
+  align-items: center;
+}
+.telaConsulta #divForm form .tipoConsulta input[type=radio] {
+  margin-bottom: 0.5em;
+}
+.telaConsulta #divForm form .tipoConsulta label:nth-of-type(1) {
+  padding-right: 2em;
+}
+.telaConsulta #divForm form .tipoConsulta, .telaConsulta #divForm form .itemsConsulta {
+  background-color: transparent;
+}
+.telaConsulta #divForm form select {
+  width: 100%;
 }
 .telaConsulta h2 {
   text-align: center;
@@ -65,6 +93,9 @@
 }
 .menuLateral li:nth-child(8) {
   order: 7;
+}
+.menuLateral li:nth-child(8) a {
+  border-bottom: 1px solid #292929;
 }
 
 a:not([href]):not([tabindex]) {
