@@ -106,4 +106,9 @@ a:not([href]):not([tabindex]) {
   display: none;
 }
 
+iframe {
+  width: 50%;
+  height: 50vh;
+}
+
 /*# sourceMappingURL=estilo.css.map */

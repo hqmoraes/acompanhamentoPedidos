@@ -1,3 +1,8 @@
+function carregarIframe() {
+    let frame = document.getElementById('#wpadminbar');
+    frame.style.display = 'none;'
+}
+
 function exibirPedidos(){
     try {
         let formPedido = `
@@ -48,22 +53,34 @@ if (window.location.href.search('acompanhar_pedidos') > 0){
         document.querySelector('input#title').value = 'Novo Evento' + Date.now();
         document.querySelector('.inside.acf-fields.-top').id = 'camposPedido';
         document.querySelectorAll('.postbox.acf-postbox')[1].style.display='none';
-        let camposEvento = document.querySelectorAll('.acf-field .acf-input');
-
+        let campoEmail = document.querySelectorAll(`.acf-field .acf-input input[type=email]`);
+        if(window.location.href.search('cliente') > 0){
+            let emailCliente = window.location.href.substring(window.location.href.search('cliente')+8,300);
+            emailCliente = emailCliente.replace('%40','@');
+            campoEmail.value = emailCliente;
+        }
     });
 
 }
 
-function exibeClientes(){
-    let listaClientes = document.createElement('iframe');
-    let email = document.getElementById('pesquisarEmail').value;
-    listaClientes.setAttribute('src','/acompanhar-pedidos/?cliente=biel*');
-    document.getElementById('listaClientes').appendChild(listaClientes);
+function exibeCompras(res_email){
+    let listaCompras = document.createElement('iframe');
+    listaCompras.setAttribute('src','/acompanhar-pedidos/?cliente=' + res_email);
+    document.getElementById('listaCompras').appendChild(listaCompras);
 }
 
-function adicionaEvento(){
-    let listaClientes = document.createElement('iframe');
-    let email = document.getElementById('pesquisarEmail').value;
-    listaClientes.setAttribute('src','/wp-admin/post-new.php?post_type=acompanhar_pedidos');
-    document.getElementById('listaClientes').appendChild(listaClientes);
+
+function adicionaEvento(res_email){
+    let adEvento = document.createElement('iframe');
+    adEvento.setAttribute('src','/wp-admin/post-new.php?post_type=acompanhar_pedidos&cliente=' + res_email);
+    adEvento.id = 'comprasRealizadas'
+    adEvento.setAttribute('onload','carregarIFrame()');
+    document.getElementById('adicionaEvento').appendChild(adEvento);
 }
+
+function pesquisarEmail(){
+    document.querySelector(`#buscarEmail input[type=submit]`).setAttribute("onclick","exibeCompras('" + document.getElementById('pesquisarEmail').value + "')");        
+    document.querySelector(`#criarEvento input[type=submit]`).setAttribute("onclick","adicionaEvento('" + document.getElementById('pesquisarEmail').value + "')");        
+}
+
+

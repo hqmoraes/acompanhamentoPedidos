@@ -15,24 +15,14 @@
                 </div>
                 <div id="buscarEmail">
                     <input type="text" id="pesquisarEmail" onfocusout="pesquisarEmail()">
-                    <input type="submit" onclick="exibeClientes()" value="Pesquisar Cliente">
+                    <input type="submit" value="Pesquisar Cliente">
                 </div>
-            </div>
-            <div id="listarCompras">
-                <select name="compras" id="compras" size="10"></select>
-                <label for="compras">Compras</label>
-                <select name="eventos" id="eventos" size="10"></select>
-                <label for="eventos">Eventos</label>
-
+                <div id="listaCompras"></div>
             </div>
         </div>
         <div id="criarEvento">
                 <input type="submit" onclick="adicionaEvento()" value="Criar Evento">
+                <div id="adicionaEvento"></div>
         </div>
 </div>
 </div>
-<script>
-    function pesquisarEmail(){
-        document.getElementById('pesquisarEmail').value = document.getElementById('pesquisarEmail').value + '*';
-    }
-</script>
