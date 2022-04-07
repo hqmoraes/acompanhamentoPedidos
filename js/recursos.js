@@ -39,5 +39,17 @@ try {
     document.querySelector('.exibirTela').setAttribute('onclick','exibirPedidos()');
 
 } catch (error) {
-    console.log(error)
+
+}
+
+if (window.location.href.search('acompanhar_pedidos') > 0){
+    document.querySelector('#wpbody-content h1.wp-heading-inline').innerText = 'Incluir Novo Evento na Compra';
+    document.addEventListener("DOMContentLoaded", function(){    
+        document.querySelector('input#title').value = 'Novo Evento' + Date.now();
+        document.querySelector('.inside.acf-fields.-top').id = 'camposPedido';
+        document.querySelectorAll('.postbox.acf-postbox')[1].style.display='none';
+        let camposEvento = document.querySelectorAll('.acf-field .acf-input');
+
+    });
+
 }

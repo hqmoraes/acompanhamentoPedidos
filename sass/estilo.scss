@@ -96,3 +96,9 @@
 a:not([href]):not([tabindex]){
     color: #777!important;
 }
+
+
+.notice, .error, #dfiFeaturedMetaBox , #pms_post_content_restriction, #members-cp, #mceu_376{
+    display: none;
+}
+

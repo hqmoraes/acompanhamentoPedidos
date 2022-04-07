@@ -11,4 +11,18 @@ function admin_area(){
     add_menu_page( 'Administrar Pedidos', 'Administrar Pedidos', 'manage_options', plugin_dir_path(__FILE__) . 'admin.php' );
 }
  
+function acompanharPedidos(){
+    register_post_type('acompanhar_pedidos',
+        array(
+            'labels' => array(
+                'name' => __('Acompanhar Pedido', 'textdomain'),
+                'singular_name' => __('Acompanhar Pedidos', textdomain),
+            ),
+            'public' => true,
+            'has_archive' => true,
+        )
+    );
+}
+add_action('init','acompanharPedidos');
+
 ?>
