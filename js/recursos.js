@@ -53,3 +53,17 @@ if (window.location.href.search('acompanhar_pedidos') > 0){
     });
 
 }
+
+function exibeClientes(){
+    let listaClientes = document.createElement('iframe');
+    let email = document.getElementById('pesquisarEmail').value;
+    listaClientes.setAttribute('src','/acompanhar-pedidos/?cliente=biel*');
+    document.getElementById('listaClientes').appendChild(listaClientes);
+}
+
+function adicionaEvento(){
+    let listaClientes = document.createElement('iframe');
+    let email = document.getElementById('pesquisarEmail').value;
+    listaClientes.setAttribute('src','/wp-admin/post-new.php?post_type=acompanhar_pedidos');
+    document.getElementById('listaClientes').appendChild(listaClientes);
+}

@@ -16,7 +16,7 @@ function acompanharPedidos(){
         array(
             'labels' => array(
                 'name' => __('Acompanhar Pedido', 'textdomain'),
-                'singular_name' => __('Acompanhar Pedidos', textdomain),
+                'singular_name' => __('Acompanhar Pedidos', 'textdomain'),
             ),
             'public' => true,
             'has_archive' => true,
