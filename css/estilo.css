@@ -111,4 +111,8 @@ iframe {
   height: 50vh;
 }
 
+iframe #wpadminbar {
+  display: none;
+}
+
 /*# sourceMappingURL=estilo.css.map */

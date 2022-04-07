@@ -1,8 +1,3 @@
-function carregarIframe() {
-    let frame = document.getElementById('#wpadminbar');
-    frame.style.display = 'none;'
-}
-
 function exibirPedidos(){
     try {
         let formPedido = `
@@ -48,21 +43,32 @@ try {
 }
 
 if (window.location.href.search('acompanhar_pedidos') > 0){
-    document.querySelector('#wpbody-content h1.wp-heading-inline').innerText = 'Incluir Novo Evento na Compra';
-    document.addEventListener("DOMContentLoaded", function(){    
-        document.querySelector('input#title').value = 'Novo Evento' + Date.now();
-        document.querySelector('.inside.acf-fields.-top').id = 'camposPedido';
-        document.querySelectorAll('.postbox.acf-postbox')[1].style.display='none';
-        let campoEmail = document.querySelectorAll(`.acf-field .acf-input input[type=email]`);
-        if(window.location.href.search('cliente') > 0){
-            let emailCliente = window.location.href.substring(window.location.href.search('cliente')+8,300);
-            emailCliente = emailCliente.replace('%40','@');
-            campoEmail.value = emailCliente;
-        }
-    });
-
+    try {
+        document.querySelector('#wpbody-content h1.wp-heading-inline').innerText = 'Incluir Novo Evento na Compra';
+        document.addEventListener("DOMContentLoaded", function(){ 
+            try {
+                document.querySelector('input#title').value = 'Novo Evento' + Date.now();
+                document.querySelector('.inside.acf-fields.-top').id = 'camposPedido';
+                document.querySelectorAll('.postbox.acf-postbox')[1].style.display='none';
+                let campoEmail = document.querySelector(`.acf-field .acf-input input[type=email]`);
+                console.log(campoEmail);
+                if(window.location.href.search('cliente') > 0){
+                    let emailCliente = window.location.href.substring(window.location.href.search('cliente')+8,300);
+                    emailCliente = emailCliente.replace('%40','@');
+                    campoEmail.value = emailCliente;
+                    document.getElementById('wpadminbar').style.display = 'none';
+                    document.getElementById('screen-meta-links').style.display = 'none';
+                }
+            }
+            catch (error) {
+                
+            }   
+        });
+    }                
+    catch (error) {
+        
+    }
 }
-
 function exibeCompras(res_email){
     let listaCompras = document.createElement('iframe');
     listaCompras.setAttribute('src','/acompanhar-pedidos/?cliente=' + res_email);
@@ -74,7 +80,6 @@ function adicionaEvento(res_email){
     let adEvento = document.createElement('iframe');
     adEvento.setAttribute('src','/wp-admin/post-new.php?post_type=acompanhar_pedidos&cliente=' + res_email);
     adEvento.id = 'comprasRealizadas'
-    adEvento.setAttribute('onload','carregarIFrame()');
     document.getElementById('adicionaEvento').appendChild(adEvento);
 }
 
