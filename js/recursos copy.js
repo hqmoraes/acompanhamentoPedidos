@@ -77,7 +77,8 @@ function exibeCompras(res_email){
 
 
 function adicionaEvento(res_email){
-    window.location.assign('/wp-admin/post-new.php?post_type=acompanhar_pedidos&cliente=' + res_email);
+    let adEvento = document.createElement('iframe');
+    adEvento.setAttribute('src','/wp-admin/post-new.php?post_type=acompanhar_pedidos&cliente=' + res_email);
     adEvento.id = 'comprasRealizadas'
     document.getElementById('adicionaEvento').appendChild(adEvento);
 }
