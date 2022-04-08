@@ -100,13 +100,29 @@ a:not([href]):not([tabindex]){
 
 .notice, .error, #dfiFeaturedMetaBox , #pms_post_content_restriction, #members-cp, #mceu_376{
     display: none;
-}
+} 
 
 iframe{
-    width: 50%;
+    width: 100%;
     height: 50vh;
 } 
 
-iframe #wpadminbar{
-    display: none;
+#listarCompras{
+    width: 100%;
+    display: flex;
+    #detEventos,#idCompras{
+        display: flex;
+        flex-direction: column;
+        padding: 1.5em;
+        select{
+            height:10em;
+        }
+    }
+    #idCompras{
+        width: 30%;
+    }
+    #detEventos{
+        width: 80%;
+    }
+
 }
