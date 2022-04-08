@@ -62,10 +62,23 @@
         justify-content: center;
         width: 80%;
         height: 70%;
-        background: white;
+        background: transparent;
         margin:0 auto;
+        flex-direction: column;
     }
-
+    #tipoCompra, #buscarEmail{
+        flex-direction: row;
+        input[type="submit"]{
+            color: black;
+        }
+    }
+    #pesquisarCompras{
+        width: 100%;
+    }
+    label{
+        margin-bottom:0;
+        padding-right: 1em;
+    }
 }
 
 .menuLateral{
@@ -102,10 +115,23 @@ a:not([href]):not([tabindex]){
     display: none;
 } 
 
+
+#pesquisarCompras{
+    width: 70vw;
+}
+
 iframe{
     width: 100%;
-    height: 50vh;
+    height: 100%;
 } 
+
+#listaCompras{
+    height: 30vh;
+}
+
+#listaCompras, #buscarEmail{
+    width: 100%;
+}
 
 #listarCompras{
     width: 100%;
@@ -113,16 +139,35 @@ iframe{
     #detEventos,#idCompras{
         display: flex;
         flex-direction: column;
-        padding: 1.5em;
+        label{
+            margin-bottom:1em;
+        }
         select{
             height:10em;
+            padding: 0.5em;
+            option{
+                border-bottom: 1px solid black
+            }
         }
     }
     #idCompras{
-        width: 30%;
+        width: 15%;
     }
     #detEventos{
-        width: 80%;
+        width: 50%;
     }
 
 }
+
+#tipoCompra{
+    margin-bottom: 1em;
+}
+
+#criarEvento{
+    margin-top: 1em;
+}
+
+#pesquisarEmail{
+    width: 50%;
+}
+

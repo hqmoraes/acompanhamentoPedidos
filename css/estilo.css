@@ -62,8 +62,22 @@
   justify-content: center;
   width: 80%;
   height: 70%;
-  background: white;
+  background: transparent;
   margin: 0 auto;
+  flex-direction: column;
+}
+.telaConsulta #tipoCompra, .telaConsulta #buscarEmail {
+  flex-direction: row;
+}
+.telaConsulta #tipoCompra input[type=submit], .telaConsulta #buscarEmail input[type=submit] {
+  color: black;
+}
+.telaConsulta #pesquisarCompras {
+  width: 100%;
+}
+.telaConsulta label {
+  margin-bottom: 0;
+  padding-right: 1em;
 }
 
 .menuLateral {
@@ -106,9 +120,21 @@ a:not([href]):not([tabindex]) {
   display: none;
 }
 
+#pesquisarCompras {
+  width: 70vw;
+}
+
 iframe {
   width: 100%;
-  height: 50vh;
+  height: 100%;
+}
+
+#listaCompras {
+  height: 30vh;
+}
+
+#listaCompras, #buscarEmail {
+  width: 100%;
 }
 
 #listarCompras {
@@ -118,16 +144,34 @@ iframe {
 #listarCompras #detEventos, #listarCompras #idCompras {
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
+}
+#listarCompras #detEventos label, #listarCompras #idCompras label {
+  margin-bottom: 1em;
 }
 #listarCompras #detEventos select, #listarCompras #idCompras select {
   height: 10em;
+  padding: 0.5em;
+}
+#listarCompras #detEventos select option, #listarCompras #idCompras select option {
+  border-bottom: 1px solid black;
 }
 #listarCompras #idCompras {
-  width: 30%;
+  width: 15%;
 }
 #listarCompras #detEventos {
-  width: 80%;
+  width: 50%;
+}
+
+#tipoCompra {
+  margin-bottom: 1em;
+}
+
+#criarEvento {
+  margin-top: 1em;
+}
+
+#pesquisarEmail {
+  width: 50%;
 }
 
 /*# sourceMappingURL=estilo.css.map */

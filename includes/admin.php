@@ -2,11 +2,11 @@
 
 <div id="administrar">
     <header>
-        <h2>Administração de pedidos</h2>
+        <h2>Administração de Compras</h2>
     </header>
-        <div>
+        <div class=".telaConsulta">
             <div id="pesquisarCompras">
-                <div id="tipoPedido">
+                <div id="tipoCompra">
                     <input type="radio" value="Pedido" name="tipoCompra" id="pedido">
                     <label for="pedido">Pedido</label>
                     <input type="radio" value="Leilão" name="tipoCompra" id="leilao">
@@ -21,8 +21,8 @@
             </div>
         </div>
         <div id="criarEvento">
-                <input type="submit" onclick="adicionaEvento()" value="Criar Evento">
                 <div id="adicionaEvento"></div>
+                <input type="submit" onclick="adicionaEvento()" value="Criar Evento">                
         </div>
 </div>
 </div>
