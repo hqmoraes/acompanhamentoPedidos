@@ -1,0 +1,11 @@
+#listarCompras .cliente{
+    display: flex;
+    justify-content: center;
+    select{
+        background-color: transparent;
+        color: white;
+    }
+    label{
+        color: white;
+    }
+}

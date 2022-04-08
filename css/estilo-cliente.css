@@ -1,0 +1,13 @@
+#listarCompras .cliente {
+  display: flex;
+  justify-content: center;
+}
+#listarCompras .cliente select {
+  background-color: transparent;
+  color: white;
+}
+#listarCompras .cliente label {
+  color: white;
+}
+
+/*# sourceMappingURL=estilo-cliente.css.map */

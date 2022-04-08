@@ -1,15 +1,24 @@
+let pg;
+
+if (window.location.href.search('acompanhamentoCompras') > 0){
+    pg = 'admin';
+}
+else if (window.location.href.search('minha-conta') > 0){
+    pg = 'cliente';
+}
+
 function exibirCompras(){
     try {
-        let formPedido = `
+        let formCompras = `
         <div id="telaFundo">
             <div class="telaConsulta">
                 <h2>Acompanhamento de Compras</h2>
                 <div>
                     <div id="pesquisarCompras">
                        <div id="tipoCompra">
-                            <input type="radio" value="Pedido" name="tipoCompra" id="pedido">
+                            <input type="radio" value="Pedido" name="tipoCompra" id="pedido" onclick=exibeCompras()>
                             <label for="pedido">Pedido</label>
-                            <input type="radio" value="Leilão" name="tipoCompra" id="leilao">
+                            <input type="radio" value="Leilão" name="tipoCompra" id="leilao" onclick=exibeCompras()>
                             <label for="leilao">Leilão</label>
 
                         </div>
@@ -23,7 +32,10 @@ function exibirCompras(){
             </div>
         </div>
         `;
-    document.querySelector('.box-content').innerHTML = formPedido;
+    document.querySelector('.box-content').innerHTML = formCompras;
+    if(pg == 'cliente'){
+        document.getElementById('buscarEmail').style.display = 'none';
+    }
     } catch (error) {
         
     }
@@ -44,22 +56,20 @@ try {
 
 }
 
-if (window.location.href.search('acompanhar_pedidos') > 0){
+if (window.location.href.search('acompanhar_compras') > 0){
     try {
         document.querySelector('#wpbody-content h1.wp-heading-inline').innerText = 'Incluir Novo Evento na Compra';
         document.addEventListener("DOMContentLoaded", function(){ 
             try {
-                document.getElementById('wpbody-content').classList.add('corpoIncluirEventos');
                 document.querySelector('input#title').value = 'Novo Evento' + Date.now();
-                document.querySelector('.inside.acf-fields.-top').id = 'camposPedido';
                 document.querySelectorAll('.postbox.acf-postbox')[1].style.display='none';
                 let campoEmail = document.querySelector(`.acf-field .acf-input input[type=email]`);
-                console.log(campoEmail);
                 if(window.location.href.search('cliente') > 0){
                     let emailCliente = window.location.href.substring(window.location.href.search('cliente')+8,300);
                     emailCliente = emailCliente.replace('%40','@');
                     campoEmail.value = emailCliente;
                 }
+
             }
             catch (error) {
                 
@@ -70,7 +80,11 @@ if (window.location.href.search('acompanhar_pedidos') > 0){
         
     }
 }
-function exibeCompras(res_email){
+
+
+
+
+function exibeCompras(res_email = 'cliente'){
     if(document.querySelector('iframe')){
         document.querySelector('iframe').remove();
     }
@@ -81,13 +95,18 @@ function exibeCompras(res_email){
     else { tpCompra = ''};
 
     let listaCompras = document.createElement('iframe');
-    listaCompras.setAttribute('src','/acompanhar-pedidos/?cliente=' + res_email + '&tipoCompra=' + tpCompra);
+    if (pg == 'admin'){
+        listaCompras.setAttribute('src','/acompanhar-compra/?cliente=' + res_email + '&tipoCompra=' + tpCompra + '&pg=' + pg);
+    }
+    else if (pg == 'cliente'){
+        listaCompras.setAttribute('src','/acompanhar-compra/?tipoCompra=' + tpCompra + '&pg=' + pg);
+    }
     document.getElementById('listaCompras').appendChild(listaCompras);
 }
 
 
 function adicionaEvento(res_email){
-    window.open('/wp-admin/post-new.php?post_type=acompanhar_pedidos&cliente=' + res_email,'_blank' );
+    window.open('/wp-admin/post-new.php?post_type=acompanhar_compras&cliente=' + res_email,'_blank' );
     adEvento.id = 'comprasRealizadas'
     document.getElementById('adicionaEvento').appendChild(adEvento);
 }
@@ -101,6 +120,3 @@ function pesquisarEmail(){
     }
 
 }
-
-
-
