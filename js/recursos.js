@@ -84,7 +84,7 @@ if (window.location.href.search('acompanhar_compras') > 0){
 
 
 
-function exibeCompras(res_email = 'cliente'){
+function exibeCompras(res_email){
     if(document.querySelector('iframe')){
         document.querySelector('iframe').remove();
     }
@@ -107,7 +107,7 @@ function exibeCompras(res_email = 'cliente'){
 
 function adicionaEvento(res_email){
     window.open('/wp-admin/post-new.php?post_type=acompanhar_compras&cliente=' + res_email,'_blank' );
-    adEvento.id = 'comprasRealizadas'
+//    adEvento.id = 'comprasRealizadas'
     document.getElementById('adicionaEvento').appendChild(adEvento);
 }
 
