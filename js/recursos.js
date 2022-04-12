@@ -58,10 +58,11 @@ try {
 
 if (window.location.href.search('acompanhar_compras') > 0){
     try {
-        document.querySelector('#wpbody-content h1.wp-heading-inline').innerText = 'Incluir Novo Evento na Compra';
-        document.addEventListener("DOMContentLoaded", function(){ 
+        document.querySelector('#wpbody-content h1.wp-heading-inline').innerText = 'Incluir nova compra';
+        document.addEventListener("DOMContentLoaded", function(){
             try {
-                document.querySelector('input#title').value = 'Novo Evento' + Date.now();
+                document.querySelector('input#title').placeholder = 'Informe o código do pedido de compra';
+                document.querySelector('label#title-prompt-text').innerText = '';
                 document.querySelectorAll('.postbox.acf-postbox')[1].style.display='none';
                 let campoEmail = document.querySelector(`.acf-field .acf-input input[type=email]`);
                 if(window.location.href.search('cliente') > 0){
@@ -84,7 +85,7 @@ if (window.location.href.search('acompanhar_compras') > 0){
 
 
 
-function exibeCompras(res_email){
+function exibeCompras(){
     if(document.querySelector('iframe')){
         document.querySelector('iframe').remove();
     }
@@ -95,12 +96,8 @@ function exibeCompras(res_email){
     else { tpCompra = ''};
 
     let listaCompras = document.createElement('iframe');
-    if (pg == 'admin'){
-        listaCompras.setAttribute('src','/acompanhar-compra/?cliente=' + res_email + '&tipoCompra=' + tpCompra + '&pg=' + pg);
-    }
-    else if (pg == 'cliente'){
-        listaCompras.setAttribute('src','/acompanhar-compra/?tipoCompra=' + tpCompra + '&pg=' + pg);
-    }
+    listaCompras.setAttribute('src','/acompanhar-compra/?tipoCompra=' + tpCompra + '&pg=' + pg);
+    console.log(listaCompras);
     document.getElementById('listaCompras').appendChild(listaCompras);
 }
 

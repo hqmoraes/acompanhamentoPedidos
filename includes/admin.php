@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap" data-email="<?php echo wp_get_current_user()->user_email; ?>">
 
 <div id="administrar">
     <header>
