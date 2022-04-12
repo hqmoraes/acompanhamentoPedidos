@@ -138,28 +138,32 @@ iframe{
 #listarCompras{
     width: 100%;
     display: flex;
+    border: white;
     #detEventos,#idCompras{
         display: flex;
         flex-direction: column;
         label{
             margin-bottom:1em;
         }
-        select{
-            height:10em;
-            padding: 0.5em;
-            option{
-                border-bottom: 1px solid black
-            }
-        }
     }
+}
+#eventos{
+    height:10em;
+    padding: 0.5em;
+    div{
+        border-bottom: 1px solid black;
+        color: white;
+    }
+}
+
     #idCompras{
-        width: 15%;
+        width: 20%;
     }
     #detEventos{
-        width: 50%;
+        width: 70%;
     }
 
-}
+
 
 #tipoCompra{
     margin-bottom: 1em;

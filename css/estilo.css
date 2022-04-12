@@ -140,6 +140,7 @@ iframe {
 #listarCompras {
   width: 100%;
   display: flex;
+  border: white;
 }
 #listarCompras #detEventos, #listarCompras #idCompras {
   display: flex;
@@ -148,18 +149,22 @@ iframe {
 #listarCompras #detEventos label, #listarCompras #idCompras label {
   margin-bottom: 1em;
 }
-#listarCompras #detEventos select, #listarCompras #idCompras select {
+
+#eventos {
   height: 10em;
   padding: 0.5em;
 }
-#listarCompras #detEventos select option, #listarCompras #idCompras select option {
+#eventos div {
   border-bottom: 1px solid black;
+  color: white;
 }
-#listarCompras #idCompras {
-  width: 15%;
+
+#idCompras {
+  width: 20%;
 }
-#listarCompras #detEventos {
-  width: 50%;
+
+#detEventos {
+  width: 70%;
 }
 
 #tipoCompra {
